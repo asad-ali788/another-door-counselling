@@ -194,6 +194,14 @@
   border-radius: 50%; background-size: cover; background-position: center top;
   border: 5px solid #fff; box-shadow: var(--shadow-md);
 }
+/* Desktop: avatar sits beside the heading on one line (mobile stays stacked) */
+@media (min-width: 721px) {
+  .dawnPage #about .section__head {
+    display: grid; grid-template-columns: auto minmax(0, 1fr);
+    align-items: center; gap: 0 2rem; text-align: left; max-width: 860px;
+  }
+  .dawnPage #about .about__avatar { grid-column: 1; grid-row: 1 / span 3; margin: 0; align-self: center; }
+}
 .dawnPage .about__media--door { align-self: center; }
 .dawnPage .about__img--full {
   height: 520px; min-height: 0; background-size: cover; background-position: center 85%;
