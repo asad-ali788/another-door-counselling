@@ -16,6 +16,12 @@
   --ink:         #343F2D;
   --muted:       #6C7A5E;
 
+  /* Icon chips — warm ochre soft-squircle with forest glyph (distinct house style) */
+  --icon-bg:   rgba(200, 160, 83, 0.16);
+  --icon-line: rgba(200, 160, 83, 0.42);
+  --icon-fg:   #3A4A38;
+  --icon-radius: 30%;
+
   --shadow-sm: 0 4px 14px rgba(45, 53, 42, 0.07);
   --shadow-md: 0 14px 36px rgba(45, 53, 42, 0.12);
   --shadow-lg: 0 28px 64px rgba(45, 53, 42, 0.18);
@@ -253,7 +259,7 @@
 }
 .dawnPage .section--tint .support__grid li { background: #fff; }
 .dawnPage .support__grid li:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
-.dawnPage .support__icon { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 13px; background: var(--moss); color: #fff; }
+.dawnPage .support__icon { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--icon-radius); background: var(--icon-bg); border: 1px solid var(--icon-line); color: var(--icon-fg); }
 .dawnPage .support__icon svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- CTA Band ---------- */
@@ -299,7 +305,7 @@
 }
 .dawnPage .training__col:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .dawnPage .training__head { display: flex; align-items: center; gap: .9rem; padding-bottom: 1.1rem; margin-bottom: 1.1rem; border-bottom: 1px solid rgba(124, 144, 112, .18); }
-.dawnPage .training__icon { flex: none; width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(124, 144, 112, .14); color: var(--moss); }
+.dawnPage .training__icon { flex: none; width: 46px; height: 46px; border-radius: var(--icon-radius); display: grid; place-items: center; background: var(--icon-bg); border: 1px solid var(--icon-line); color: var(--icon-fg); }
 .dawnPage .training__icon svg { width: 24px; height: 24px; }
 .dawnPage .training__col h3 { font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.5rem); color: var(--forest); margin: 0; }
 .dawnPage .training__list { display: grid; gap: 0; }
@@ -327,8 +333,8 @@
 .dawnPage .avail__slotlist { display: grid; gap: .6rem; }
 .dawnPage .avail__slotlist li { display: flex; align-items: center; gap: .65rem; font-size: .9rem; font-weight: 600; color: var(--ink); }
 .dawnPage .avail__sloticon {
-  flex: none; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center;
-  background: rgba(120, 143, 98, .14); color: var(--sage-dark);
+  flex: none; width: 30px; height: 30px; border-radius: var(--icon-radius); display: grid; place-items: center;
+  background: var(--icon-bg); border: 1px solid var(--icon-line); color: var(--icon-fg);
 }
 .dawnPage .avail__sloticon svg { width: 17px; height: 17px; }
 .dawnPage .avail__closed {
@@ -352,8 +358,8 @@
 }
 .dawnPage .feature:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 .dawnPage .feature__icon {
-  width: 64px; height: 64px; margin: 0 auto 1.2rem; border-radius: 50%; display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--moss), var(--sage)); color: #fff;
+  width: 64px; height: 64px; margin: 0 auto 1.2rem; border-radius: var(--icon-radius); display: grid; place-items: center;
+  background: var(--icon-bg); border: 1px solid var(--icon-line); color: var(--icon-fg);
 }
 .dawnPage .feature__icon svg { width: 30px; height: 30px; }
 .dawnPage .feature h3 { font-size: 1.4rem; margin-bottom: .5rem; }
@@ -366,7 +372,7 @@
   border: 1px solid rgba(124,144,112,.16); transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
 .dawnPage .value:hover { transform: translateY(-6px); box-shadow: var(--shadow-sm); }
-.dawnPage .value__icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--sand); color: #fff; margin-bottom: 1.1rem; }
+.dawnPage .value__icon { width: 52px; height: 52px; border-radius: var(--icon-radius); display: grid; place-items: center; background: var(--icon-bg); border: 1px solid var(--icon-line); color: var(--icon-fg); margin-bottom: 1.1rem; }
 .dawnPage .value__icon svg { width: 26px; height: 26px; }
 .dawnPage .value h3 { font-size: 1.25rem; margin-bottom: .5rem; }
 .dawnPage .value p { color: var(--muted); font-size: .95rem; }
@@ -388,7 +394,7 @@
 }
 .dawnPage a.contact__card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
 .dawnPage .contact__card--static, .dawnPage .contact__card--wide { grid-column: 1 / -1; }
-.dawnPage .contact__icon { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--moss); color: #fff; }
+.dawnPage .contact__icon { flex: none; width: 48px; height: 48px; border-radius: var(--icon-radius); display: grid; place-items: center; background: var(--icon-bg); border: 1px solid var(--icon-line); color: var(--icon-fg); }
 .dawnPage .contact__icon svg { width: 24px; height: 24px; }
 .dawnPage .contact__label { display: block; font-size: .76rem; text-transform: uppercase; letter-spacing: .13em; color: var(--muted); font-weight: 700; }
 .dawnPage .contact__card > div { min-width: 0; }
