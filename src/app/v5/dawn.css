@@ -454,7 +454,7 @@
 @media (max-width: 720px) {
   /* Big gaps: sections hit a ~72px padding minimum on phones — bring it down */
   .dawnPage .section { padding: 3.25rem 0; }
-  .dawnPage .band { padding: 3.6rem 0; }
+  .dawnPage .band { padding: 3.6rem 1.2rem; }
   .dawnPage .section__head { margin-bottom: 1.9rem; }
 
   /* About: let the image fill the column so its edges line up with the text
@@ -476,6 +476,7 @@
 
 @media (max-width: 560px) {
   .dawnPage .section { padding: 2.9rem 0; }
+  .dawnPage .contact__card strong.contact__value--email { font-size: clamp(.72rem, 3.5vw, .92rem); }
   .dawnPage .card__body { padding: 1.4rem 1.4rem 1.6rem; }
   .dawnPage .support__grid li { font-size: 1.15rem; padding: 1.2rem 1.3rem; }
   .dawnPage .feature { padding: 1.8rem 1.5rem; }

@@ -175,7 +175,7 @@ export default function V5() {
       {/* HEADER */}
       <header className={`site-header${scrolled ? " scrolled" : ""}`} id="top">
         <div className="container header__inner">
-          <a href="#top" className="brand" aria-label={`${site.businessName} home`}>
+          <a href="/" className="brand" aria-label={`${site.businessName} home`}>
             <span className="brand__mark" aria-hidden="true"><DoorMark /></span>
             <span className="brand__text">
               <strong>{site.businessName}</strong>
