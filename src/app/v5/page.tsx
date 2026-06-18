@@ -233,6 +233,12 @@ export default function V5() {
       <section className="about section" id="about">
         <div className="container">
           <div className="section__head reveal">
+            <div
+              className="about__avatar"
+              role="img"
+              aria-label={`${site.name}, ${site.credential}`}
+              style={{ backgroundImage: `url('${images.josh}')` }}
+            />
             <p className="eyebrow">About {firstName}</p>
             <h2 className="section__title section__title--glow">Meet Josh Brushett, {site.credential}</h2>
             <p className="section__intro">

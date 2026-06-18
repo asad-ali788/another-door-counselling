@@ -233,6 +233,7 @@ export const images = {
   window:
     "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1600&q=75",
   openDoor: "/images/open-door.png", // open arched door onto rolling green fields & trees (user-supplied)
+  josh: "/images/josh.png", // Josh Brushett profile photo (user-supplied)
 
   // only used by the throwaway preview variants v1–v4
   portrait:
