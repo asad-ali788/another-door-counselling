@@ -467,7 +467,7 @@
 @media (max-width: 720px) {
   /* Big gaps: sections hit a ~72px padding minimum on phones — bring it down */
   .dawnPage .section { padding: 3.25rem 0; }
-  .dawnPage .band { padding: 3.6rem 1.2rem; }
+  .dawnPage .band { padding: 5rem 1.2rem; }
   .dawnPage .section__head { margin-bottom: 1.9rem; }
 
   /* About: let the image fill the column so its edges line up with the text
