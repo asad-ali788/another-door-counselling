@@ -154,9 +154,10 @@
 @keyframes heroZoom { to { transform: scale(1); } }
 .dawnPage .hero__blur {
   position: absolute; inset: 0; pointer-events: none;
-  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  -webkit-mask-image: linear-gradient(100deg, #000 0%, #000 26%, rgba(0,0,0,0) 58%);
-          mask-image: linear-gradient(100deg, #000 0%, #000 26%, rgba(0,0,0,0) 58%);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  /* Blur only the area behind the hero copy, feathered out — rest of photo stays sharp */
+  -webkit-mask-image: radial-gradient(58% 82% at 28% 50%, #000 0%, #000 46%, rgba(0,0,0,0) 80%);
+          mask-image: radial-gradient(58% 82% at 28% 50%, #000 0%, #000 46%, rgba(0,0,0,0) 80%);
 }
 .dawnPage .hero__overlay {
   position: absolute; inset: 0;
