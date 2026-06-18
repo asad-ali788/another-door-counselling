@@ -491,6 +491,10 @@
 
   /* Trauma / contact split grids: trim the oversized stacked gap */
   .dawnPage .contact__grid { gap: 2rem; }
+
+  /* CTA band: give the heading and stacked buttons breathing room top & bottom */
+  .dawnPage .band__content h2 { margin-top: 1rem; }
+  .dawnPage .band__actions { margin-bottom: 1rem; }
 }
 
 @media (max-width: 560px) {
