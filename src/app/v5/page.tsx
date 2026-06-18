@@ -8,7 +8,6 @@ import {
   steps,
   images,
   concessions,
-  schedule,
   approach,
   approachQuote,
   backgroundIntro,
@@ -36,29 +35,27 @@ function DoorMark({ size = 26 }: { size?: number }) {
   );
 }
 
-// ── "When I work" — reshaped from the slot matrix into per-day cards ──────────
-const dayFull: Record<string, string> = {
-  Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday",
-  Fri: "Friday", Sat: "Saturday", Sun: "Sunday",
-};
-
-const workingDays = schedule.days
-  .map((day, i) => ({ day, slots: schedule.slots.filter((s) => s.open[i]).map((s) => s.label) }))
-  .filter((d) => d.slots.length > 0);
-
-const closedDays = schedule.days.filter((_, i) => schedule.slots.every((s) => !s.open[i]));
-
-function SlotIcon({ label }: { label: string }) {
-  const p = { fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
-  if (label === "Early morning")
-    return <svg viewBox="0 0 24 24" {...p}><path d="M3 18h18M12 3v4M5.6 9.6 4.2 8.2M18.4 9.6l1.4-1.4M8 18a4 4 0 0 1 8 0M9 7l3-3 3 3" /></svg>;
-  if (label === "Evening")
-    return <svg viewBox="0 0 24 24" {...p}><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>;
-  if (label === "Late afternoon")
-    return <svg viewBox="0 0 24 24" {...p}><path d="M3 18h18M5 18a7 7 0 0 1 14 0M12 10V4M9 7l3 3 3-3" /></svg>;
-  // Morning / Early afternoon → sun
-  return <svg viewBox="0 0 24 24" {...p}><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M19 5l-1.4 1.4M6.4 17.6 5 19" /></svg>;
-}
+// ── "Finding a time that works" — flexible scheduling options ─────────────────
+const availOptions = [
+  {
+    title: "Weekly sessions",
+    text: "A consistent day and time each week — the steady rhythm many people find most supportive.",
+    // refresh / cycle
+    icon: <><path d="M21 12a9 9 0 1 1-2.64-6.36" /><path d="M21 3v5h-5" /></>,
+  },
+  {
+    title: "Fortnightly sessions",
+    text: "Every other week — a little more flexibility, and gentler on the budget if you'd prefer.",
+    // calendar
+    icon: <><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4M8 14h.01M13 14h.01M8 18h.01M13 18h.01" /></>,
+  },
+  {
+    title: "Online or in person",
+    text: "Online via Microsoft Teams right across the UK, or in person from a room in Biggleswade, Bedfordshire.",
+    // map pin
+    icon: <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></>,
+  },
+];
 
 const ways = [
   {
@@ -111,8 +108,8 @@ const supportIcons = [
 
 const values = [
   {
-    title: "BACP & NCPS registered",
-    text: "A registered member of the BACP and the NCPS, working to a strict ethical framework.",
+    title: "BACP registered",
+    text: "A registered member of the BACP (MBACP), working to a strict professional and ethical framework.",
     icon: <g><path d="M12 2 3 7v6c0 5 3.8 8.5 9 9 5.2-.5 9-4 9-9V7z" /><path d="m9 12 2 2 4-4" /></g>,
   },
   {
@@ -242,7 +239,8 @@ export default function V5() {
             <p className="eyebrow">About {firstName}</p>
             <h2 className="section__title section__title--glow">Meet Josh Brushett, {site.credential}</h2>
             <p className="section__intro">
-              A warm, person-centred counsellor helping you find a way forward — at your own pace.
+              A warm, integrative therapist with a trauma-informed approach — helping you find a
+              way forward, at your own pace.
             </p>
           </div>
 
@@ -503,8 +501,8 @@ export default function V5() {
               <div className="feature__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4M9 14l2 2 4-4" /></svg>
               </div>
-              <h3>Availability</h3>
-              <p>{site.availability}, online via Microsoft Teams — wherever you are in the UK.</p>
+              <h3>Flexible scheduling</h3>
+              <p>Weekly or fortnightly sessions to suit you. As my hours vary, we&apos;ll settle on a time that works in your free consultation.</p>
             </div>
             <div className="feature reveal">
               <div className="feature__icon">
@@ -530,29 +528,26 @@ export default function V5() {
 
           <div className="avail reveal">
             <div className="avail__head">
-              <h3>When I work</h3>
+              <h3>Finding a time that works</h3>
               <p className="avail__note">
-                Online via Microsoft Teams — with morning, afternoon and evening slots to fit
-                around your week.
+                I keep my schedule flexible rather than fixed to set days, so we can find a slot
+                that genuinely fits around your life — and mine.
               </p>
             </div>
-            <div className="avail__days">
-              {workingDays.map(({ day, slots }) => (
-                <article className="avail__daycard" key={day}>
-                  <span className="avail__dayname">{dayFull[day]}</span>
-                  <ul className="avail__slotlist">
-                    {slots.map((s) => (
-                      <li key={s}>
-                        <span className="avail__sloticon" aria-hidden="true"><SlotIcon label={s} /></span>
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
+            <div className="avail__days avail__days--options">
+              {availOptions.map((opt) => (
+                <article className="avail__daycard avail__option" key={opt.title}>
+                  <span className="avail__optionicon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{opt.icon}</svg>
+                  </span>
+                  <span className="avail__dayname">{opt.title}</span>
+                  <p className="avail__optiontext">{opt.text}</p>
                 </article>
               ))}
             </div>
             <p className="avail__closed">
-              Rest days · {closedDays.map((d) => dayFull[d]).join(", ")}
+              We&apos;ll find the right time together in your free 15-minute consultation — often,
+              that first slot becomes your regular one.
             </p>
           </div>
         </div>
@@ -594,9 +589,9 @@ export default function V5() {
             </p>
             <p className="contact__memberships">
               <span>BACP Member</span>
-              <span>NCPS Member</span>
+              <span>Trauma-Informed</span>
               <span>LGBTQ+ Affirming</span>
-              <span>Online via Teams</span>
+              <span>Online &amp; In person</span>
             </p>
           </div>
 
@@ -628,7 +623,7 @@ export default function V5() {
               <div>
                 <span className="contact__label">Where Josh works</span>
                 <strong>{site.serves}</strong>
-                <span className="contact__sub">Based in {site.location} ({site.postcode}) · {site.availability}</span>
+                <span className="contact__sub">Based in {site.location} ({site.postcode}) · in-person room in {site.inPersonLocation}</span>
               </div>
             </div>
           </div>

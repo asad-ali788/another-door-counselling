@@ -10,13 +10,14 @@ export const site = {
   role: "Counsellor & Psychotherapist",
   credential: "MBACP",
   credentialLong: "Registered Member of the BACP",
-  memberships: "Registered with the BACP & NCPS",
+  memberships: "Registered with the BACP",
   qualification: "Level 4 Diploma in Therapeutic Counselling",
   training: "Level 5 Diploma in Trauma Therapy",
   tagline: "Paving the path to mental wellbeing",
   location: "Sandy, Bedfordshire",
   postcode: "SG19",
-  serves: "Online via Microsoft Teams · UK-wide",
+  serves: "Online UK-wide · In person in Biggleswade",
+  inPersonLocation: "Biggleswade, Bedfordshire",
   clients: "Adults & young people (16+)",
   phone: "07360 633 105",
   phoneHref: "tel:+447360633105",
@@ -24,7 +25,7 @@ export const site = {
   fee: "£60",
   sessionLength: "50 minutes",
   consultation: "Free 15-minute consultation",
-  availability: "Mon, Tue, Thu & Sat — mornings, afternoons & evenings",
+  availability: "Flexible weekly & fortnightly slots",
   qualifiedYear: "2024",
   experience: "5 years in health & social care",
 } as const;
@@ -72,7 +73,7 @@ export const backgroundIntro =
 export const qualifications = [
   "Level 5 Diploma in Trauma Therapy (BCTS)",
   "Level 4 Diploma in Therapeutic Counselling (BCTS)",
-  "Registered Member of the BACP (MBACP) & NCPS",
+  "Registered Member of the BACP (MBACP)",
   "GSRD training & qualifications (PINK Therapy)",
   "Childhood Sexual Abuse: Hope for Healing (Carolyn Spring)",
   "Dealing with Distress: Suicide & Self-Harm (Carolyn Spring)",
@@ -184,7 +185,11 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "How do sessions work?",
-    a: "I work online via Microsoft Teams, so you can have sessions from wherever you feel most comfortable, anywhere in the UK. We start with a free 15-minute consultation before you commit to anything.",
+    a: "Most of my work is online via Microsoft Teams, so you can have sessions from wherever you feel most comfortable, anywhere in the UK. I can also see some clients in person from a room in Biggleswade, Bedfordshire. We start with a free 15-minute consultation before you commit to anything.",
+  },
+  {
+    q: "How often will we meet, and when?",
+    a: "That's up to you — many people choose a weekly session for a steady rhythm, while others prefer fortnightly for a little more flexibility (and a gentler cost). My own hours vary week to week, so rather than fixed days we'll find a time that genuinely works for you in your free consultation. Often, that slot becomes your regular one.",
   },
   {
     q: "What can I talk about in counselling?",
