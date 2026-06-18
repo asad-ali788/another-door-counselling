@@ -449,3 +449,35 @@
   .dawnPage .hero__title { font-size: clamp(2rem, 8.4vw, 5rem); }
   .dawnPage .section__title { font-size: clamp(1.8rem, 7.5vw, 3.1rem); }
 }
+
+/* ---------- Mobile/tablet spacing, alignment & image tightening ---------- */
+@media (max-width: 720px) {
+  /* Big gaps: sections hit a ~72px padding minimum on phones — bring it down */
+  .dawnPage .section { padding: 3.25rem 0; }
+  .dawnPage .band { padding: 3.6rem 0; }
+  .dawnPage .section__head { margin-bottom: 1.9rem; }
+
+  /* About: let the image fill the column so its edges line up with the text
+     (was capped at 460px and centred, which left it orphaned beside full-width text) */
+  .dawnPage .about__media { max-width: none; margin: 0 0 1.4rem; }
+  .dawnPage .about__img { height: 300px; min-height: 0; }
+  .dawnPage .about__img--full { height: 340px; background-position: center; }
+  .dawnPage .about__grid + .about__grid { margin-top: 2.6rem; }
+
+  /* "16+" badge: flow it under the image instead of overhanging the corner */
+  .dawnPage .about__badge {
+    position: static; left: auto; bottom: auto; margin: .9rem 0 0;
+    max-width: none; width: fit-content;
+  }
+
+  /* Trauma / contact split grids: trim the oversized stacked gap */
+  .dawnPage .contact__grid { gap: 2rem; }
+}
+
+@media (max-width: 560px) {
+  .dawnPage .section { padding: 2.9rem 0; }
+  .dawnPage .card__body { padding: 1.4rem 1.4rem 1.6rem; }
+  .dawnPage .support__grid li { font-size: 1.15rem; padding: 1.2rem 1.3rem; }
+  .dawnPage .feature { padding: 1.8rem 1.5rem; }
+  .dawnPage .value { padding: 1.6rem 1.4rem; }
+}
